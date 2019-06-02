@@ -11,8 +11,8 @@ public class Calculate {
 	* @param args-argd.
 	*/
 	
-	public static void main (String [] args ){
-		System.out.println ("Hello World");
+	public static void main(String[] args) {
+		System.out.println("Hello World");
 	}
 	
 	/**
