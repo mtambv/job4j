@@ -18,8 +18,8 @@ public class MultiMax {
 
     public int max(int first, int second, int third) {
 
-        int result = third > (first > second ? first : second) ? third :
-                ((first > second) ? first : second);
+        int temp = first > second ? first : second;
+        int result = third > temp ? third : temp;
         return result;
     }
 }
