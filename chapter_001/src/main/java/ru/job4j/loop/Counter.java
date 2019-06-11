@@ -9,16 +9,20 @@ package ru.job4j.loop;
 
 public class Counter {
 
+    /**
+     * Method add takes the range of numbers
+     *
+     * @param start  1-st number in the range
+     * @param finish last number in the range
+     * @return the sum of all even numbers in the range
+     */
+
     public int add(int start, int finish) {
         int sum = 0;
         int i = 0;
-
         for (i = start; i <= finish; i++) {
-
             if (i % 2 == 0) {
-                sum = sum + i;
-
-            }
+                sum = sum + i; }
         }
         return sum;
     }
