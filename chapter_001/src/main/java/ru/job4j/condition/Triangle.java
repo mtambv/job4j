@@ -9,8 +9,6 @@ package ru.job4j.condition;
 public class Triangle {
 
 
-    public class Point {
-
         /**
          * Метод должен вычислить площадь треугольника.
          *
@@ -24,22 +22,19 @@ public class Triangle {
          */
 
 
-        int x1, y1, x2, y2, x3, y3;
-
-        public  double area (x1, y1, x2, y2, x3, y3){
-            //double rsl = -1;
-            double a = new Point().distance(x1, y1, x2, y2);
-            double b = new Point().distance(x2, y2, x3, y3);
-            double c = new Point().distance(x1, y1, x3, y3);
+        public  double area (int x1, int y1, int x2, int y2, int x3, int y3) {
+            double rsl = 0;
+            double a = new Triangle().distance(x1, y1, x2, y2);
+            double b = new Triangle().distance(x2, y2, x3, y3);
+            double c = new Triangle().distance(x1, y1, x3, y3);
             double p = period(a, b, c);
 
             if (this.exist(a, b, c)) {
                 // формулa для расчета площади треугольника.
-                double rsl = Math.sqrt(p * (p - a) * (p - b) * (p - c));
-                return rsl;
+                 rsl = Math.sqrt(p * (p - a) * (p - b) * (p - c));
+
             }
-
-
+            return rsl;
         }
 
         /**
@@ -50,14 +45,12 @@ public class Triangle {
          * @param c Длина от точки b c.
          * @return
          */
-        private boolean exist(double a, double c, double b) {
-            if (a != 0 && b != 0 && c != 0) ;
+        public boolean exist(double a, double c, double b) {
+            if (a != 0 && b != 0 && c != 0 && a+ b > c  &&  b+c > a &&  a+c  > b ) ;
             {
                 return true;
             }
         }
-
-
 
         /**
          * Method distance
@@ -88,6 +81,6 @@ public class Triangle {
         double p = (a + b + c) / 2;
         return p;
     }
-
 }
-    }
+
+
