@@ -22,15 +22,15 @@ public class Triangle {
          */
 
 
-        public  double area (int x1, int y1, int x2, int y2, int x3, int y3) {
+        public  double area(int x1, int y1, int x2, int y2, int x3, int y3) {
             double rsl = 0;
-            double a = new Triangle().distance(x1, y1, x2, y2);
-            double b = new Triangle().distance(x2, y2, x3, y3);
-            double c = new Triangle().distance(x1, y1, x3, y3);
+            double a = new Point().distance(x1, y1, x2, y2);
+            double b = new Point().distance(x2, y2, x3, y3);
+            double c = new Point().distance(x1, y1, x3, y3);
             double p = period(a, b, c);
 
             if (this.exist(a, b, c)) {
-                // формулa для расчета площади треугольника.
+
                  rsl = Math.sqrt(p * (p - a) * (p - b) * (p - c));
 
             }
@@ -43,26 +43,11 @@ public class Triangle {
          * @param a Длина от точки a b.
          * @param b Длина от точки a c.
          * @param c Длина от точки b c.
-         * @return
+         * @return true or false
          */
-        public boolean exist(double a, double c, double b) {
-            if (a != 0 && b != 0 && c != 0 && a+ b > c  &&  b+c > a &&  a+c  > b ) ;
-            {
-                return true;
-            }
-        }
+        private boolean exist(double a, double c, double b) {
+            return a + b > c && b + c > a && a + c > b;
 
-        /**
-         * Method distance
-         *
-         * @param x1,y1,x2,y2 input coordinate
-         * @return distance between 2 points
-         */
-
-        public double distance(int x1, int y1, int x2, int y2) {
-            double first = Math.pow(x2 - x1, 2);
-            double second = Math.pow(y2 - y1, 2);
-            return Math.sqrt(first + second);
         }
 
 
@@ -78,8 +63,7 @@ public class Triangle {
      */
     public double period(double a, double b, double c) {
 
-        double p = (a + b + c) / 2;
-        return p;
+        return (a + b + c) / 2;
     }
 }
 
