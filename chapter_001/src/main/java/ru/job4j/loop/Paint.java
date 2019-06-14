@@ -1,12 +1,15 @@
 package ru.job4j.loop;
 
+import java.util.function.BiPredicate;
+
 /**
  * @author Mstislav Tambovtsev (mtambv@gmail.com)
  * @version $Id$
  * @since 0.1
  */
 
-public class Paint {
+
+    public class Paint {
 
     /**
      * Method rightTrl draws right side of pyramid
@@ -15,70 +18,63 @@ public class Paint {
      *
      * @return right side of pyramid
      */
+
     public String rightTrl(int height) {
-        // Буфер для результата.
-        StringBuilder screen = new StringBuilder();
-        // ширина будет равна высоте.
-        int width = height;
-        // внешний цикл двигается по строкам.
-        for (int row = 0; row != height; row++) {
-            // внутренний цикл определяет положение ячейки в строке.
-            for (int column = 0; column != width; column++) {
-                // если строка равна ячейке, то рисуем галку.
-                // в данном случае строка определяет, сколько галок будет в строке
-                if (row >= column) {
-                    screen.append("^");
-                } else {
-                    screen.append(" ");
-                }
-            }
-            // добавляем перевод строки.
-            screen.append(System.lineSeparator());
-        }
-        // Получаем результат.
-        return screen.toString();
+        return this.loopBy(
+                height,
+                height,
+                (row, column) -> row >= column
+        );
     }
+    /**
+     * Method leftTrl draws left side of pyramid
+     *
+     * @param height of pyramid
+     *
+     * @return right side of pyramid
+     */
 
     public String leftTrl(int height) {
-        /**
-         * Method leftTrl draws left side of pyramid
-         *
-         * @param height of pyramid
-         *
-         * @return right side of pyramid
-         */
-
-        StringBuilder screen = new StringBuilder();
-        int width = height;
-        for (int row = 0; row != height; row++) {
-            for (int column = 0; column != width; column++) {
-                if (row >= width - column - 1) {
-                    screen.append("^");
-                } else {
-                    screen.append(" ");
-                }
-            }
-            screen.append(System.lineSeparator());
-        }
-        return screen.toString();
+        return this.loopBy(
+                height,
+                height,
+                (row, column) -> row >= height - column - 1
+        );
     }
+
+
+    /**
+     * Method pyramid
+     *
+     * combines 2 previous methods rightTrl and leftTrl
+     *
+     * @param height of pyramid
+     *
+     * @return complete pyramid
+     */
 
     public String pyramid(int height) {
-        /**
-         * Method pyramid
-         *
-         * combines 2 previous methods rightTrl and leftTrl
-         *
-         * @param height of pyramid
-         *
-         * @return complete pyramid
-         */
+        return this.loopBy(
+                height,
+                2 * height - 1,
+                (row, column) -> row >= height - column - 1 && row + height - 1 >= column
+        );
+    }
 
+    /**
+     * Method loopBy
+     *
+     * @param height input parameter
+     * @param widht  input parameter
+     * @param predict predicate input parameter
+     * @return  parameters for pyramid Method
+     */
+
+    private String loopBy(int height, int widht, BiPredicate<Integer, Integer> predict) {
         StringBuilder screen = new StringBuilder();
-        int width = 2 * height - 1;
         for (int row = 0; row != height; row++) {
-            for (int column = 0; column != width; column++) {
-                if (row >= height - column - 1 && row + height - 1 >= column) {
+            for (int column = 0; column != widht; column++) {
+                if (predict.test(row, column)) {
                     screen.append("^");
                 } else {
                     screen.append(" ");
@@ -88,6 +84,4 @@ public class Paint {
         }
         return screen.toString();
     }
-
-
 }
