@@ -19,13 +19,23 @@ public class ArrayChar {
         boolean result = true;
         char[] pref = prefix.toCharArray();
         char[] wrd = word.toCharArray();
-        int k = pref.length;
-        char [] wrd2 = Arrays.copyOf(wrd,k);
 
-        if (Arrays.equals(wrd2,pref)) {
-            result = true;
-    }
+        for (int i = 1; i < wrd.length-1; ++i) {
+
+            char a = wrd[i];
+                 a = wrd[i+1];
+
+            for (int k = 1; k < pref.length-1; ++k) {
+
+                char b = pref[k];
+                    // b = pref[k+1];
+
+                if (b == a) {
+                    result = true;
+                }
+            }
+
+        }
         return result;
-
     }
 }
