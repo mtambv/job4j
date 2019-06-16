@@ -14,12 +14,17 @@ public class Turn {
      * @return array reversed
      */
     public int[] back(int[] array) {
-        for (int i = array.length - 1; i > -1; i--) {
-            /* здесь не совсем понятно
-             * обычно пишут System.out.println(args[i]);
-             */
+        for (int left = 0, right = array.length - 1; left < right; left++, right--) {
+            // swap the values at the left and right indices
+            int temp = array[left];
+            array[left]  = array[right];
+            array[right] = temp;
         }
         return array;
     }
+
 }
+
+
+
 
