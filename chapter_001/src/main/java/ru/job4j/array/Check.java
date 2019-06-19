@@ -14,6 +14,7 @@ public class Check {
      * @param data -input boolean array
      * @return- wheather arrray contain all "true" or all  "false" values
      */
+
     public boolean mono(boolean[] data) {
         boolean result = false;
         for (int i = 0; i < data.length - 1; i++) {
