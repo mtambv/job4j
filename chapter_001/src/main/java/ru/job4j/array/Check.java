@@ -15,12 +15,17 @@ public class Check {
      * @return- wheather arrray contain all "true" or all  "false" values
      */
     public boolean mono(boolean[] data) {
-
-        for (int i = 0; i < data.length; i++) {
-            if (!data[i]) return false;
+        boolean result = false;
+        for (int i = 0; i < data.length - 1; i++) {
+            if (data[i] != data[i + 1]) {
+                result = false;
+            } else {
+                result = true;
+            }
         }
-            return true;
+        return result;
     }
+
 }
 
 
