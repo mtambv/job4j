@@ -16,20 +16,14 @@ public class ArrayChar {
      * @return если слово начинаеться с префикса
      */
     public boolean startsWith(String word, String prefix) {
-        boolean result = false;
+        boolean result = true;
         char[] pref = prefix.toCharArray();
         char[] wrd = word.toCharArray();
 
         for (int i = 0; i < pref.length; i++) {
 
-            for (int j = 0; j < pref.length; j++) {
-
-                if (pref[i] == wrd[j]) {
-                    result = true;
-                }
-                else {
-                    result = false;
-                }
+            if (pref[i] != wrd[i]) {
+                result = false;
             }
         }
         return result;
