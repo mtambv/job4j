@@ -19,6 +19,16 @@ public class BubbleSortTest {
         int[] result = bubbleSort.sort(input);
         int[] expect = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
         assertThat(result, is(expect));
-
+    }
+    @Test
+    public void whenSortArrayAlltheSame() {
+        // тест, проверяющий сортировку массива из 10 элементов методом пузырька.
+        BubbleSort  bubbleSort = new BubbleSort();
+        int[] input = new int[] {1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+        int[] result = bubbleSort.sort(input);
+        int[] expect = new int[] {1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+        assertThat(result, is(expect));
     }
 }
+
+
