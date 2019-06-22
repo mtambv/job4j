@@ -16,15 +16,12 @@ public class Matrix {
      */
 
     int[][] multiple(int size) {
-        int [][] table = new int [size] [size];
-        int count = 0;
-for (int out = 0; out!= size; out ++) {
+        int[][] table = new int[size] [size];
+
+for (int out = 0; out != size; out++) {
     for (int inner = 0; inner != size; inner++) {
 
-        table[out] = (table[out * inner]);
-             table[inner] = (table[out * inner]);
-            count++;
-
+        table[out][inner] = (out + 1) * (inner + 1);
     }
 }
         return table;
