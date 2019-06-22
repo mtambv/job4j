@@ -12,7 +12,7 @@ public class Check {
      * Method mono takes
      *
      * @param data -input boolean array
-     * @return- wheather arrray contain all "true" or all  "false" values
+     * @return- wheather arrray contains all "true" or all  "false" values
      */
 
     public boolean mono(boolean[] data) {
@@ -20,11 +20,13 @@ public class Check {
 
         for (int i = 0; i < data.length - 1; i++) {
 
-            if (data[i] != data[i + 1]) {result = false;}
+            if (data[i] != data[i + 1]) {
+                result = false;
+                break;
+            }
         }
         return result;
     }
-
 }
 
 

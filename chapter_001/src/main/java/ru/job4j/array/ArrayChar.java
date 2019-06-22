@@ -24,6 +24,7 @@ public class ArrayChar {
 
             if (pref[i] != wrd[i]) {
                 result = false;
+                break;
             }
         }
         return result;
