@@ -4,12 +4,11 @@ import ru.job4j.puzzle.firuges.Cell;
 import ru.job4j.puzzle.firuges.Figure;
 
 /**
- * //TODO add comments.
- *
- * @author Petr Arsentev (parsentev@yandex.ru)
+ * @author Mstislav Tambovtsev (mtambv@gmail.com)
  * @version $Id$
  * @since 0.1
  */
+
 public class Logic {
     private final int size;
     private final Figure[] figures;
@@ -66,27 +65,33 @@ public class Logic {
         return rst;
     }
 
+    /**
+     * Method isWin
+     * @return wheather or not winning condition is met
+     * ov horizontal or vertical lines
+     */
+
     public boolean isWin() {
         int[][] table = this.convert();
-        boolean result = true;
-        int n = 0;
+        boolean result = false;
+        int count1 = 0;
+        int count2 = 0;
+
         for (int i = 0; i < table[0].length; i++) {
-            if (table[n][0] != table[n][i]) {
-                result = false;
+            for (int j = 0; j < table.length; j++) {
+                if (table[i][j] == 1) {
+                    count1++;
+                }
+                if (table[j][i] == 1) {
+                    count2++;
+                }
+            }
         }
-            n ++;
-        }
-        n = 0;
-        //for (int j = 0; j < table.length; j++) {
-            //if (table[0][n] != table[j][n]) {
-                //result = false;
-            //}
-            n ++;
-        //}
-
-
+        if (count1 == size || count2 == size)
+            result = true;
         return result;
     }
+
     public int[][] convert() {
         int[][] table = new int[this.size][this.size];
         for (int row = 0; row != table.length; row++) {

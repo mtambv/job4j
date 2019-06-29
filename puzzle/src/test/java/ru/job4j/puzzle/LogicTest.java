@@ -1,5 +1,12 @@
 package ru.job4j.puzzle;
 
+/**
+ * @author Mstislav Tambovtsev (mtambv@gmail.com)
+ * @version $Id$
+ * @since 0.1
+ */
+
+
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;
