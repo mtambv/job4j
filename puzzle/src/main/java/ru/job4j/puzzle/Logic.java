@@ -67,10 +67,9 @@ public class Logic {
 
     /**
      * Method isWin
-     * @return wheather or not winning condition is met
-     * ov horizontal or vertical lines
+     * @ return whether or not winning condition is met
+     * or horizontal or vertical lines
      */
-
     public boolean isWin() {
         int[][] table = this.convert();
         boolean result = false;
@@ -78,6 +77,10 @@ public class Logic {
         int count2 = 0;
 
         for (int i = 0; i < table[0].length; i++) {
+            if (count1 == size || count2 == size)
+                result = true;
+            else count1 = 0;
+                 count2 = 0;
             for (int j = 0; j < table.length; j++) {
                 if (table[i][j] == 1) {
                     count1++;
@@ -87,10 +90,9 @@ public class Logic {
                 }
             }
         }
-        if (count1 == size || count2 == size)
-            result = true;
         return result;
     }
+
 
     public int[][] convert() {
         int[][] table = new int[this.size][this.size];
