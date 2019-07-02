@@ -8,7 +8,7 @@ package ru.job4j.condition;
 
 public class MultiMax {
     /**
-     * Mthod max takes 3 numbers and returns the highest
+     * Method max takes 3 numbers and returns the highest
      *
      * @param first  input parameter
      * @param second input parameter

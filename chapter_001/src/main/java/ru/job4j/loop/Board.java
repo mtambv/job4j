@@ -10,11 +10,8 @@ public class Board {
 
     /**
      * Method paint
-     *
      * takes 2 numbers and draws a checkerboard
-     *
      * @param width of checkerboard
-     *
      * @param height of checkerboard
      * @return drawn checkerboard of X's
      */

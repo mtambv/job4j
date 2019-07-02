@@ -6,18 +6,14 @@ package ru.job4j.loop;
  * @since 0.1
  */
 
-
 public class Factorial {
-
     /**
      * Method calc
      * <p>
      * returns factorial of the entered number
-     *
      * @param n parameter entered
      * @return factorial of n
      */
-
 
     public int calc(int n) {
         int result = 1;

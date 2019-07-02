@@ -75,7 +75,6 @@ public class Logic {
         boolean result = false;
         int count1 = 0;
         int count2 = 0;
-
         for (int i = 0; i < table[0].length; i++) {
             if (count1 == size || count2 == size)
                 result = true;
@@ -92,7 +91,6 @@ public class Logic {
         }
         return result;
     }
-
 
     public int[][] convert() {
         int[][] table = new int[this.size][this.size];

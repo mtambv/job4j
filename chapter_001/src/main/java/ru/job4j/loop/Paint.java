@@ -1,5 +1,4 @@
 package ru.job4j.loop;
-
 import java.util.function.BiPredicate;
 
 /**
@@ -7,15 +6,10 @@ import java.util.function.BiPredicate;
  * @version $Id$
  * @since 0.1
  */
-
-
     public class Paint {
-
     /**
      * Method rightTrl draws right side of pyramid
-     *
      * @param height of pyramid
-     *
      * @return right side of pyramid
      */
 
@@ -28,9 +22,7 @@ import java.util.function.BiPredicate;
     }
     /**
      * Method leftTrl draws left side of pyramid
-     *
      * @param height of pyramid
-     *
      * @return right side of pyramid
      */
 
@@ -41,15 +33,10 @@ import java.util.function.BiPredicate;
                 (row, column) -> row >= height - column - 1
         );
     }
-
-
     /**
      * Method pyramid
-     *
      * combines 2 previous methods rightTrl and leftTrl
-     *
      * @param height of pyramid
-     *
      * @return complete pyramid
      */
 
@@ -63,13 +50,11 @@ import java.util.function.BiPredicate;
 
     /**
      * Method loopBy
-     *
      * @param height input parameter
      * @param widht  input parameter
      * @param predict predicate input parameter
      * @return  parameters for pyramid Method
      */
-
     private String loopBy(int height, int widht, BiPredicate<Integer, Integer> predict) {
         StringBuilder screen = new StringBuilder();
         for (int row = 0; row != height; row++) {

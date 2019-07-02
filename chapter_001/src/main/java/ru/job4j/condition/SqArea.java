@@ -15,11 +15,9 @@ public class SqArea {
      */
 
     public double square(int p, int k) {
-
         double h = (p / 2) / (k + 1);
         double w = h * k;
         double s = w * h;
-
         return s;
     }
 }

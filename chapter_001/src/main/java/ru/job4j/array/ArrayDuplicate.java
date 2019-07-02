@@ -24,7 +24,6 @@ public class ArrayDuplicate {
                     array[in] = array[unique - 1];
                     unique--;
                     in--;
-
                 }
             }
         }

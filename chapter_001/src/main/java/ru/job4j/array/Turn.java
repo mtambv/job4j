@@ -7,7 +7,6 @@ package ru.job4j.array;
  */
 
 public class Turn {
-
     /**
      * Metod back takes
      * @param array input
@@ -21,7 +20,6 @@ public class Turn {
         }
         return array;
     }
-
 }
 
 
