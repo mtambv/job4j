@@ -39,7 +39,7 @@ public class Triangle {
      *
      * @return Вернуть площадь, если треугольник существует или -1.
      */
-    public double area(int x1, int y1, int x2, int y2, int x3, int y3) {
+    public double area() {
         double rsl = 0;
         double a = first.distance(second);
         double b = first.distance(third);
