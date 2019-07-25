@@ -1,6 +1,8 @@
 package ru.job4j.tracker;
 
 import org.junit.Test;
+import ru.job4j.tracker.chapter1ReFactor.Point;
+import ru.job4j.tracker.chapter1ReFactor.Triangle;
 
 import static org.hamcrest.number.IsCloseTo.closeTo;
 import static org.junit.Assert.assertThat;
