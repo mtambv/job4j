@@ -43,13 +43,18 @@ public class Tracker {
      * должен заменить ячейку в массиве this.items. Для этого необходимо найти ячейку в
      * массиве по id. Метод должен вернуть boolean результат - удалось ли провести операцию.
      */
-    public Item replace(String id, Item item) {
+    public boolean replace(String id, Item item) {
         for (position = 0; position < items.length; position++) {
             if (items[position].equals(id)) {
                 items[position] = item;
             }
         }
-        return item;
+        if (id == null
+                || item == null
+                || position < 0
+                || position >= items.length) {return false;
+        }
+        else return true;
     }
 
     /**
@@ -57,17 +62,20 @@ public class Tracker {
      * массиве по id.  Далее сместить все значения справа от удаляемого элемента - на одну
      * ячейку влево с помощью System.arrayCopy(). Метод должен вернуть boolean результат -удалось ли провести операцию.
      */
-    public Item [] delete(String id) {
-        Item[] temp = new Item[items.length -1];
+    public boolean delete(String id) {
+        Item[] temp = new Item[items.length - 1];
         for (int i = 0, k = 0; i < items.length; i++) {
             if (id.equals(items[i])) {
                 continue;
             }
             temp[k++] = items[i];
         }
-        return temp;
+        if (id == null
+                || position < 0
+                || position >= items.length) {return false;
+        }
+        else return true;
     }
-
     /**
      * возвращает копию массива this.items без null элементов
      */
