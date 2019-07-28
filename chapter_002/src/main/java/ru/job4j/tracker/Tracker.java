@@ -44,7 +44,7 @@ public class Tracker {
      * массиве по id. Метод должен вернуть boolean результат - удалось ли провести операцию.
      */
     public boolean replace(String id, Item item) {
-        for (int i = 0; position < items.length; i ++) {
+        for (int i = 0; i < position; i ++) {
             if (items[i].getId().equals(id)) {
                 items[i] = item;
             }
@@ -63,21 +63,22 @@ public class Tracker {
      * ячейку влево с помощью System.arrayCopy(). Метод должен вернуть boolean результат -удалось ли провести операцию.
      */
     public boolean delete(String id) {
-        for (int i = 0; i < items.length; i++) {
+        for (int i = 0; i < position; i++) {
             if (id.equals(items[i])) {
-                for (int j = i; j < items.length - 1; j++) {
-                    items[j] = items[j + 1];
-                    position --;
+                Item temp = items[position -1];
+                items[i] = items[position -1];
+                temp = items[i];
+                System.arraycopy (items,0,items,0,position -2);
+                position --;
                 }
-                break;
             }
-        }
         if (id == null
                 || position < 0
                 || position >= items.length) {
             return false;
         } else return true;
     }
+
     /**
      * возвращает копию массива this.items без null элементов
      */
@@ -85,13 +86,14 @@ public class Tracker {
         return Arrays.copyOf(this.items, this.position);
     }
 
-    public Item findByName(String key) {
-        int i;
-        for (i = 0; i < items.length; i++) {
+    public Item [] findByName(String key) {
+        int i =0;
+        Item [] result = new Item[i];
+        for (i = 0; i < position; i++) {
             if (key.equals(items[i]))
-                break;
+                result [i] = items [i];
         }
-        return items[i];
+        return result;
     }
         /**проверяет в цикле все элементы массива this.items, сравнивая id с аргументом String id и
          *возвращает найденный Item. Если Item не найден - возвращает null
@@ -99,7 +101,7 @@ public class Tracker {
          */
         public Item findById (String id) {
             int i;
-            for (i = 0; i < items.length; i ++) {
+            for (i = 0; i < position; i ++) {
                 if (id.equals(items[i]))
                     break;
             }
