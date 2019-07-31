@@ -44,17 +44,16 @@ public class Tracker {
      * массиве по id. Метод должен вернуть boolean результат - удалось ли провести операцию.
      */
     public boolean replace(String id, Item item) {
+        boolean res = false;
         for (int i = 0; i < position; i ++) {
             if (items[i].getId().equals(id)) {
                 items[i] = item;
+                item.setId(id);
+                res = true;
+                break;
             }
         }
-        if (id == null
-                || item == null
-                || position < 0
-                || position >= items.length) {return false;
-        }
-        else return true;
+        return res;
     }
 
     /**
@@ -63,20 +62,17 @@ public class Tracker {
      * ячейку влево с помощью System.arrayCopy(). Метод должен вернуть boolean результат -удалось ли провести операцию.
      */
     public boolean delete(String id) {
+        boolean result = false;
         for (int i = 0; i < position; i++) {
             if (id.equals(items[i])) {
-                Item temp = items[position -1];
-                items[i] = items[position -1];
-                temp = items[i];
-                System.arraycopy (items,0,items,0,position -2);
+                items[i] = null;
+                System.arraycopy (items, i + 1, items, i,position - i);
                 position --;
-                }
+                result = true;
+                break;
             }
-        if (id == null
-                || position < 0
-                || position >= items.length) {
-            return false;
-        } else return true;
+        }
+        return result;
     }
 
     /**
@@ -87,25 +83,27 @@ public class Tracker {
     }
 
     public Item [] findByName(String key) {
-        int i =0;
-        Item [] result = new Item[i];
-        for (i = 0; i < position; i++) {
+        Item [] result = new Item[position];
+        int i;
+        for (i = 0; i < this.position; i++) {
             if (key.equals(items[i]))
-                result [i] = items [i];
+                result[i] = items[i];
         }
-        return result;
+        return Arrays.copyOf(result,i);
     }
         /**проверяет в цикле все элементы массива this.items, сравнивая id с аргументом String id и
          *возвращает найденный Item. Если Item не найден - возвращает null
          * @return
          */
         public Item findById (String id) {
-            int i;
-            for (i = 0; i < position; i ++) {
-                if (id.equals(items[i]))
-                    break;
+            Item result = null;
+            for (Item item: items) {
+                if (item != null && item.getId().equals(id)) {
+                    result = item;
+                     break;
+                }
             }
-            return items[i];
+            return result;
         }
     }
 
