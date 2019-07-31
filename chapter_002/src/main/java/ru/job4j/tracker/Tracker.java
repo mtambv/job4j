@@ -85,7 +85,7 @@ public class Tracker {
     public Item [] findByName(String key) {
         Item [] result = new Item[position];
         int i;
-        for (i = 0; i < this.position; i++) {
+        for (i = 0; i < position; i++) {
             if (key.equals(items[i]))
                 result[i] = items[i];
         }
