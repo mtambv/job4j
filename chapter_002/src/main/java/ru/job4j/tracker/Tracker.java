@@ -84,10 +84,10 @@ public class Tracker {
 
     public Item [] findByName(String key) {
         Item [] result = new Item[position];
-        int i;
-        for (i = 0; i < position; i++) {
-            if (key.equals(items[i]))
-                result[i] = items[i];
+        int i =0;
+        for (int j = 0; i < position; j++) {
+            if (key.equals(items[j]))
+                result[i ++] = items[i];
         }
         return Arrays.copyOf(result,i);
     }
@@ -97,9 +97,9 @@ public class Tracker {
          */
         public Item findById (String id) {
             Item result = null;
-            for (Item item: items) {
-                if (item != null && item.getId().equals(id)) {
-                    result = item;
+            for (int i = 0; i < position; i++) {
+                if (items [i] != null && items [i].getId().equals(id)) {
+                    result = items [i];
                      break;
                 }
             }
