@@ -78,7 +78,7 @@ public class Tracker {
     /**
      * возвращает копию массива this.items без null элементов
      */
-    public Item[] findAll(Item item) {
+    public Item[] findAll() {
         return Arrays.copyOf(this.items, this.position);
     }
 

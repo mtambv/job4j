@@ -68,23 +68,31 @@ switch (select) {
         System.out.println("------------ Добавление новой заявки --------------");
         String name = this.input.ask("Введите имя заявки :");
         String desc = this.input.ask("Введите описание заявки :");
-        Item item = new Item(name, desc);
+        long time = new java.util.Date().getTime();
+        Item item = new Item(name, desc, time);
         this.tracker.add(item);
         System.out.println("------------ Новая заявка с getId : " + item.getId() + "-----------");
     }
     private void showAllItems() {
-        this.tracker.findAll(Item item);
+        System.out.println("------------ Displaying all items in the Tracker -----------");
+        this.tracker.findAll();
     }
     private void editItem() {
+        System.out.println("------------ Enter item you want to delete --------------");
+        String id = this.input.ask("Введите имя заявки :");
+        Item item = this.input.ask("Enter new item:");
         this.tracker.replace(String id, Item item);
     }
     private void deleteItem() {
+        String id = this.input.ask("Введите id заявки :");
         this.tracker.delete(String id);
     }
     private void findItemById() {
+        String id = this.input.ask("Введите id заявки :");
         this.tracker.findById (String id);
     }
     private void findItemByName() {
+        String key = this.input.ask("Введите id заявки :");
         this.tracker.findByName(String key);
     }
 

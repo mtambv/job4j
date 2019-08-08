@@ -5,14 +5,15 @@ import java.util.Objects;
 public class Item {
     private String id;
     private String name;
-    private String decs;
-    private long time ;
+    private String desc;
+    private Long time ;
 
-    public Item(String name, String decs, long time) {
+    public Item(String name, String decs, Long time) {
         this.name = name;
-        this.decs = decs;
+        this.desc = decs;
         this.time = time;
     }
+
 
     public String getId() {
         return id;
@@ -31,18 +32,18 @@ public class Item {
     }
 
     public String getDecs() {
-        return decs;
+        return desc;
     }
 
-    public void setDecs(String decs) {
-        this.decs = decs;
+    public void setDecs(String desc) {
+        this.desc = desc;
     }
 
-    public long getTime() {
+    public Long getTime() {
         return time;
     }
 
-    public void setTime(long time) {
+    public void setTime(Long time) {
         this.time = time;
     }
 
@@ -54,11 +55,11 @@ public class Item {
         return time == item.time &&
                 Objects.equals(id, item.id) &&
                 Objects.equals(name, item.name) &&
-                Objects.equals(decs, item.decs);
+                Objects.equals(desc, item.desc);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, decs, time);
+        return Objects.hash(id, name, desc, time);
     }
 }
