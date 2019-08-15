@@ -68,7 +68,7 @@ public class StartUI {
                 case 5:
                     this.findItemByName();
                     break;
-                case 6:
+                default:
                     exit = true;
             }
         }
@@ -123,11 +123,11 @@ public class StartUI {
         Item item = (this.tracker.findById(id));
         if (item != null) {
             System.out.println(item);
-        }
-        else {System.out.println("-------итем не найден ---------");
+        } else {
+            System.out.println("-------итем не найден ---------");
         }
     }
-        private void findItemByName () {
+        private void findItemByName() {
             String key = this.input.ask("Введите id заявки :");
             Item[] items = this.tracker.findByName(key);
             for (Item item : items) {
@@ -135,13 +135,13 @@ public class StartUI {
             }
         }
 
-        private boolean exit () {
-        return true ;
+        private boolean exit() {
+        return true;
         }
 
-        private void showMenu () {
-            System.out.print("Меню.\n 0. Add new Item \n 1. Show all items\n 2. Edit item \n " +
-                    "3.Delete item \n 4. Find item by Id \n 5. Find items by name \n 6. Exit Program \n Select: ");
+        private void showMenu() {
+            System.out.print("Меню.\n 0. Add new Item \n 1. Show all items\n 2. Edit item \n "
+                    + "3.Delete item \n 4. Find item by Id \n 5. Find items by name \n 6. Exit Program \n Select: ");
 
         }
 
@@ -149,7 +149,7 @@ public class StartUI {
          * Запускт программы.
          * @param args
          */
-        public static void main (String[]args){
+        public static void main(String[]args) {
             ConsoleInput input = new ConsoleInput();
             Tracker tracker = new Tracker();
             String name = input.ask("Please enter the task's name:");

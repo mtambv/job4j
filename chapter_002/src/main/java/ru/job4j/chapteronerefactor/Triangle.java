@@ -1,7 +1,5 @@
-package ru.job4j.chapter1ReFactor;
+package ru.job4j.chapteronerefactor;
 
-
-import ru.job4j.chapter1ReFactor.Point;
 
 public class Triangle {
     private Point first;

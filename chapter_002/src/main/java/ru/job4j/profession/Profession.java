@@ -6,7 +6,7 @@ public class Profession {
     public String education;
     public int dateOfBirth;
 
-    public Profession (String name, String lastName, String education, int dateOfBirth) {
+    public Profession(String name, String lastName, String education, int dateOfBirth) {
         this.name = name;
         this.lastName = lastName;
         this.education = education;
@@ -15,15 +15,16 @@ public class Profession {
     public String getName() {
         return name;
     }
-    public String getLastName (){
+    public String getLastName() {
         return lastName;
     }
-    public String getEducation (){
+    public String getEducation() {
         return education;
     }
-    public int getDateOfBirth (){ return dateOfBirth;
+    public int getDateOfBirth() {
+        return dateOfBirth;
     }
 
-    public void applyForJob (){
+    public void applyForJob() {
     }
 }

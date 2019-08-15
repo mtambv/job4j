@@ -45,7 +45,7 @@ public class Tracker {
      */
     public boolean replace(String id, Item item) {
         boolean res = false;
-        for (int i = 0; i < position; i ++) {
+        for (int i = 0; i < position; i++) {
             if (items[i].getId().equals(id)) {
                 items[i] = item;
                 item.setId(id);
@@ -66,8 +66,8 @@ public class Tracker {
         for (int i = 0; i < position; i++) {
             if (id.equals(items[i])) {
                 items[i] = null;
-                System.arraycopy (items, i + 1, items, i,position - i);
-                position --;
+                System.arraycopy(items, i + 1, items, i, position - i);
+                position--;
                 result = true;
                 break;
             }
@@ -82,20 +82,21 @@ public class Tracker {
         return Arrays.copyOf(this.items, this.position);
     }
 
-    public Item [] findByName(String key) {
-        Item [] result = new Item[position];
-        int i =0;
+    public Item[] findByName(String key) {
+        Item[] result = new Item[position];
+        int i = 0;
         for (int j = 0; i < position; j++) {
-            if (key.equals(items[j]))
-                result[i ++] = items[j];
+            if (key.equals(items[j])) {
+                result[i++] = items[j];
+            }
         }
-        return Arrays.copyOf(result,i);
+        return Arrays.copyOf(result, i);
     }
         /**проверяет в цикле все элементы массива this.items, сравнивая id с аргументом String id и
          *возвращает найденный Item. Если Item не найден - возвращает null
          * @return
          */
-        public Item findById (String id) {
+        public Item findById(String id) {
             Item result = null;
             for (int i = 0; i < position; i++) {
                 if (items [i] != null && items [i].getId().equals(id)) {

@@ -7,16 +7,15 @@ public class Surgeon extends Doctor {
     private int skillScore;
     private boolean isDrunk;
 
-    public Surgeon ( String name, String lastName, String education,int dateOfBirth, String specialty, int skillScore) {
-        super (name, lastName, education, dateOfBirth, specialty);
+    public Surgeon(String name, String lastName, String education, int dateOfBirth, String specialty, int skillScore) {
+        super(name, lastName, education, dateOfBirth, specialty);
         this.skillScore = skillScore;
     }
-    private void anasthesia (int gramsNovocaine) {
+    private void anasthesia(int gramsNovocaine) {
 
     }
-    private void cut (int lengthOfIncision) {
+    private void cut(int lengthOfIncision) {
 
     }
-
 }
 

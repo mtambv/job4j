@@ -1,4 +1,4 @@
-package ru.job4j.chapter1ReFactor;
+package ru.job4j.chapteronerefactor;
 
 import static java.lang.Math.sqrt;
 import static java.lang.Math.pow;
@@ -35,7 +35,7 @@ public class Point {
     }
 
     public double distance3d(Point that) {
-        return sqrt(pow(this.x - that.x, 2) + pow(this.y - that.y, 2)+ pow(this.z - that.z, 2));
+        return sqrt(pow(this.x - that.x, 2) + pow(this.y - that.y, 2) + pow(this.z - that.z, 2));
     }
 
     public void info() {
