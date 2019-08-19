@@ -138,12 +138,12 @@ public class StartUI {
         private boolean exit() {
         return true;
         }
+    private void showMenu() {
+        System.out.print("Меню.\n 0. Add new Item \n 1. Show all items\n 2. Edit item \n "
+                + "3. Delete item \n 4. Find item by Id \n 5. Find items by name \n 6. Exit Program \n Select: ");
 
-        private void showMenu() {
-            System.out.print("Меню.\n 0. Add new Item \n 1. Show all items\n 2. Edit item \n "
-                    + "3.Delete item \n 4. Find item by Id \n 5. Find items by name \n 6. Exit Program \n Select: ");
+    }
 
-        }
 
         /**
          * Запускт программы.
@@ -152,7 +152,7 @@ public class StartUI {
         public static void main(String[]args) {
             ConsoleInput input = new ConsoleInput();
             Tracker tracker = new Tracker();
-            String name = input.ask("Please enter the task's name:");
+            //String name = input.ask("Please enter the task's name:");
             //tracker.add(new Task (name, "first desc"));
             new StartUI(new ConsoleInput(), new Tracker()).init();
         }
