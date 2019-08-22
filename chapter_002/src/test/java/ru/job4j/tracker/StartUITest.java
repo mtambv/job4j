@@ -33,7 +33,7 @@ public class StartUITest {
         boolean deleted = tracker.delete("test name");
         Input input = new StubInput(new String[]{"3"});
         new StartUI(input, tracker).init();
-        assertThat(tracker.delete(deleted, is(true));
+        assertThat(deleted, is(true));
     }
     @Test
     public void whenFindByIdThenShowsCorrectly() {
@@ -46,20 +46,17 @@ public class StartUITest {
     @Test
     public void whenFindByNameThenShowsCorrectly() {
         Tracker tracker = new Tracker();
-        Item item = tracker.findByName("test name");
+        Item[] items = tracker.findByName("test name");
         Input input = new StubInput(new String[]{"5", item.getName()});
         new StartUI(input, tracker).init();
-        assertThat(tracker.findByName(item.getName(), is("test replace"));
+        assertThat(items, is(Item.getName());
     }
     @Test
     public void whenShowAllItemsThenShowsCorrectly() {
         Tracker tracker = new Tracker();
-        Item item [] = tracker.findAll();
+        Item items [] = tracker.findAll();
         Input input = new StubInput(new String[]{"1"});
         new StartUI(input, tracker).init();
-        assertThat(tracker.findAll(null, is(null);
+        assertThat(items, is (Item[]));
     }
-
-
-
 }
