@@ -6,11 +6,7 @@ import java.io.PrintStream;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-/**
- * @author Petr Arsentev (parsentev@yandex.ru)
- * @version $Id$
- * @since 0.1
- */
+
 public class PaintTest {
     @Test
     public void whenDrawSquare() {
@@ -27,10 +23,10 @@ public class PaintTest {
                 new String(out.toByteArray()),
                 is(
                         new StringBuilder()
-                                .append("++++")
-                                .append("+     +")
-                                .append("+     +")
-                                .append("++++")
+                                .append("+++++\n")
+                                .append("+   +\n")
+                                .append("+   +\n")
+                                .append("+++++")
                                 .append(System.lineSeparator())
                                 .toString()
                 )
