@@ -97,8 +97,8 @@ public class StartUI {
 
     private void editItem() {
         System.out.println("------------ Enter item you want to delete --------------");
-        String name = this.input.ask("Введите имя заявки :");
         String id = this.input.ask("Enter id you wish to edit:");
+        String name = this.input.ask("Введите имя заявки :");
         String desc = this.input.ask("Enter description you wish to edit:");
         long time = new java.util.Date().getTime();
         Item item = new Item(name, desc, time);

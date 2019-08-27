@@ -13,6 +13,14 @@ public class StartUITest {
         new StartUI(input, tracker).init();     //   создаём StartUI и вызываем метод init()
         assertThat(tracker.findAll()[0].getName(), is("test name")); // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
     }
+    @Test
+    public void whenShowAllItemsThenShowsCorrectly () {
+        Tracker tracker = new Tracker();
+        Item items[] = tracker.findAll();
+        Input input = new StubInput(new String[]{"1", "6"});
+        new StartUI(input, tracker).init();
+        assertThat(items, is(new Item[0]));
+    }
 
     @Test
     public void whenUpdateThenTrackerHasUpdatedValue() {
@@ -31,17 +39,17 @@ public class StartUITest {
     @Test
     public void whenDeleteThenTrackerHasUpdated() {
         Tracker tracker = new Tracker();
-        boolean deleted = tracker.delete("test name");
-        Input input = new StubInput(new String[]{"3"});
+        Item item = tracker.add(new Item("test name", "desc", 1046L));
+        Input input = new StubInput(new String[]{"3", item.getId(), "6"});
         new StartUI(input, tracker).init();
-        assertThat(deleted, is(true));
+        assertThat (tracker.findAll(), is(new Item[0]));
     }
 
     @Test
     public void whenFindByIdThenShowsCorrectly() {
         Tracker tracker = new Tracker();
-        Item item = tracker.findById("test name");
-        Input input = new StubInput(new String[]{"4", item.getId()});
+        Item item = tracker.add(new Item("test name", "desc", 1046L));
+        Input input = new StubInput(new String[]{"4", item.getId(), "6"});
         new StartUI(input, tracker).init();
         assertThat(tracker.findById(item.getId()).getName(), is("test name"));
     }
@@ -49,18 +57,10 @@ public class StartUITest {
     @Test
     public void whenFindByNameThenShowsCorrectly() {
         Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("test name", "desc", 1046L));
         Item[] items = tracker.findByName("test name");
-        //Input input = new StubInput(new String[]{"5", item.getName(), "6"});
-        //new StartUI(input, tracker).init();
-        //assertThat(items, is(Item.getName());
+        Input input = new StubInput(new String[]{"5", item.getName(), "6"});
+        new StartUI(input, tracker).init();
+        assertThat(tracker.findByName(item.getName()), is(items));
     }
-        @Test
-        public void whenShowAllItemsThenShowsCorrectly () {
-            Tracker tracker = new Tracker();
-            Item items[] = tracker.findAll();
-            Input input = new StubInput(new String[]{"1", "6"});
-            new StartUI(input, tracker).init();
-            assertThat(items, is(new Item[0]));
-        }
-
 }
