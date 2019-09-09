@@ -128,7 +128,7 @@ public class StartUI {
         }
     }
         private void findItemByName() {
-            String key = this.input.ask("Введите id заявки :");
+            String key = this.input.ask("Введите имя заявки :");
             Item[] items = this.tracker.findByName(key);
             for (Item item : items) {
                 System.out.println(item);
