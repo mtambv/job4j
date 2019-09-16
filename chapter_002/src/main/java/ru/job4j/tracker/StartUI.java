@@ -44,34 +44,12 @@ public class StartUI {
      * Основой цикл программы.
      */
     public void init() {
-        boolean exit = false;
-        while (!exit) {
-            this.showMenu();
-            String answer = this.input.ask("Введите пункт меню : ");
-            int select = Integer.parseInt(answer);
-            switch (select) {
-                case 0:
-                    this.createItem();
-                    break;
-                case 1:
-                    this.showAllItems();
-                    break;
-                case 2:
-                    this.editItem();
-                    break;
-                case 3:
-                    this.deleteItem();
-                    break;
-                case 4:
-                    this.findItemById();
-                    break;
-                case 5:
-                    this.findItemByName();
-                    break;
-                default:
-                    exit = true;
-            }
-        }
+        MenuTracker menu = new MenuTracker(this.input, this.tracker);
+        menu.fillActions();
+        do {
+            menu.show();
+            menu.select(Integer.valueOf(input.ask("select:")));
+        } while (!"y".equals(this.input.ask("Exit?(y): ")));
     }
 
     /**
