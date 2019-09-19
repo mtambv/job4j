@@ -3,7 +3,7 @@ package ru.job4j.tracker;
 public class AddItem implements UserAction {
     @Override
     public int key() {
-        return ADD;
+        return 0;
     }
 
     @Override
@@ -11,7 +11,8 @@ public class AddItem implements UserAction {
         System.out.println("------------ Adding new item --------------");
         String name = input.ask("Please, provide item name:");
         String desc = input.ask("Please, provide item description:");
-        Item item = new Item(name, desc);
+        long time = new java.util.Date ().getTime();
+        Item item = new Item(name, desc, time);
         tracker.add(item);
         System.out.println("------------ New Item with Id : " + item.getId());
         System.out.println("------------ New Item with Name : " + item.getName());

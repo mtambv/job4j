@@ -8,9 +8,9 @@ public class Item {
     private String desc;
     private Long time;
 
-    public Item(String name, String decs, Long time) {
+    public Item(String name, String desc, Long time) {
         this.name = name;
-        this.desc = decs;
+        this.desc = desc;
         this.time = time;
     }
 
@@ -31,7 +31,7 @@ public class Item {
         this.name = name;
     }
 
-    public String getDecs() {
+    public String getDesc() {
         return desc;
     }
 
