@@ -1,5 +1,8 @@
 package ru.job4j.tracker;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @version $Id$
  * @since 0.1
@@ -19,6 +22,7 @@ public class StartUI {
      * Константа для выхода из цикла.
      */
     private static final String EXIT = "6";
+    private int [] range = new int[] {1,2,3,4};
     /**
      * Получение данных от пользователя.
      */
@@ -35,9 +39,9 @@ public class StartUI {
      * @param input   ввод данных.
      * @param tracker хранилище заявок.
      */
-    public StartUI(Input input, Tracker tracker) {
+    public StartUI(Input input) {
         this.input = input;
-        this.tracker = tracker;
+        //this.tracker = tracker;
     }
 
     /**
@@ -45,73 +49,16 @@ public class StartUI {
      */
     public void init() {
         MenuTracker menu = new MenuTracker(this.input, this.tracker);
+        List<Integer> range = new ArrayList<>();
         menu.fillActions();
+        for (int i = 0; i < menu.getActionsLentgh(); i++) {
+            range.add(i);
+        }
         do {
             menu.show();
-            menu.select(Integer.valueOf(input.ask("select:")));
+            menu.select(input.ask("select:", range));
         } while (!"y".equals(this.input.ask("Exit?(y): ")));
     }
-
-    /**
-     * Метод реализует добавленяи новый заявки в хранилище.
-     */
-    private void createItem() {
-        System.out.println("------------ Добавление новой заявки --------------");
-        String name = this.input.ask("Введите имя заявки :");
-        String desc = this.input.ask("Введите описание заявки :");
-        long time = new java.util.Date().getTime();
-        Item item = new Item(name, desc, time);
-        this.tracker.add(item);
-        System.out.println("------------ Новая заявка с getId : " + item.getId() + "-----------");
-    }
-
-    private void showAllItems() {
-        System.out.println("------------ Displaying all items in the Tracker -----------");
-        Item[] items = this.tracker.findAll();
-        for (Item item : items) {
-            System.out.println(item);
-        }
-    }
-
-    private void editItem() {
-        System.out.println("------------ Enter item you want to delete --------------");
-        String id = this.input.ask("Enter id you wish to edit:");
-        String name = this.input.ask("Введите имя заявки :");
-        String desc = this.input.ask("Enter description you wish to edit:");
-        long time = new java.util.Date().getTime();
-        Item item = new Item(name, desc, time);
-        if (this.tracker.replace(id, item)) {
-            System.out.println("------ заявка обновлена_-------");
-        } else {
-            System.out.println("-------итем не найден ---------");
-        }
-    }
-
-    private void deleteItem() {
-        String id = this.input.ask("Введите id заявки :");
-        if (this.tracker.delete(id)) {
-            System.out.println("------ итем удален -------");
-        } else {
-            System.out.println("-------итем не найден ---------");
-        }
-    }
-
-    private void findItemById() {
-        String id = this.input.ask("Введите id заявки :");
-        Item item = (this.tracker.findById(id));
-        if (item != null) {
-            System.out.println(item);
-        } else {
-            System.out.println("-------итем не найден ---------");
-        }
-    }
-        private void findItemByName() {
-            String key = this.input.ask("Введите имя заявки :");
-            Item[] items = this.tracker.findByName(key);
-            for (Item item : items) {
-                System.out.println(item);
-            }
-        }
 
         private boolean exit() {
         return true;
@@ -122,16 +69,12 @@ public class StartUI {
 
     }
 
-
         /**
          * Запускт программы.
          * @param args
          */
         public static void main(String[]args) {
-            ConsoleInput input = new ConsoleInput();
-            Tracker tracker = new Tracker();
-            //String name = input.ask("Please enter the task's name:");
-            //tracker.add(new Task (name, "first desc"));
-            new StartUI(new ConsoleInput(), new Tracker()).init();
+            Input input = new ValidateInput();
+            new StartUI(input).init ();
         }
     }
