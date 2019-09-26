@@ -22,7 +22,7 @@ public class StartUI {
      * Константа для выхода из цикла.
      */
     private static final String EXIT = "6";
-    private int [] range = new int[] {1,2,3,4};
+    List<Integer> range = new ArrayList<>();
     /**
      * Получение данных от пользователя.
      */
@@ -31,7 +31,7 @@ public class StartUI {
     /**
      * Хранилище заявок.
      */
-    private final Tracker tracker;
+    private final Tracker tracker = new Tracker();
 
     /**
      * Конструтор инициализирующий поля.
