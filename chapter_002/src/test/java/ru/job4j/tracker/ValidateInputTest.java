@@ -24,6 +24,20 @@ public class ValidateInputTest {
     }
 
     @Test
+    public void whenOutOfBoundsInput() {
+        ValidateInput input = new ValidateInput(
+                new StubInput(new String[] {"100", "7"})
+        );
+        input.ask("Enter", new int[] {7});
+        assertThat(
+                this.mem.toString(),
+                is(
+                        String.format("Please select key from menu.%n")
+                )
+        );
+    }
+
+    @Test
     public void whenInvalidInput() {
         ValidateInput input = new ValidateInput(
                 new StubInput(new String[] {"invalid", "1"})

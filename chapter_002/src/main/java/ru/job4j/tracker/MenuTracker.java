@@ -57,6 +57,15 @@ public class MenuTracker {
         this.actions.add(new ExitProgram());
     }
 
+    public int [] ranges () {
+        int[] range = new int[actions.size()];
+        int i = 0;
+        for (UserAction action : actions) {
+            range [i++] = action.key();
+        }
+        return range;
+    }
+
     /**
      * Метод в зависимости от указанного ключа, выполняет соотвествующие действие.
      *
