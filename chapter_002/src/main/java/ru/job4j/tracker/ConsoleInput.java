@@ -17,10 +17,10 @@ private Scanner scanner = new Scanner(System.in);
                 break;
             }
         }
-        if (exist) {
-            return key;
-        } else {
+        if (!exist) {
             throw new MenuOutException("Out of menu range" );
-        }
+           }
+            return key;
     }
 }
+
