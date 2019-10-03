@@ -1,8 +1,8 @@
 package ru.job4j.tracker;
 
-public class DeleteItem implements UserAction {
-    public int key() {
-        return 3;
+public class DeleteItem extends BaseAction {
+    public DeleteItem (int key, String name) {
+        super(key, name);
     }
 
     public void execute(Input input, Tracker tracker) {
@@ -12,8 +12,5 @@ public class DeleteItem implements UserAction {
         } else {
             System.out.println("-------итем не найден ---------");
         }
-    }
-    public String info() {
-        return "Delete item";
     }
 }
