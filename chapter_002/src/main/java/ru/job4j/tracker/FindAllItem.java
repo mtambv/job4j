@@ -2,7 +2,7 @@ package ru.job4j.tracker;
 
 public class FindAllItem extends BaseAction {
 
-    public FindAllItem  (int key, String name) {
+    public FindAllItem(int key, String name) {
         super(key, name);
     }
 
