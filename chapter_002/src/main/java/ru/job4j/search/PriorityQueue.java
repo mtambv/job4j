@@ -11,17 +11,15 @@ public class PriorityQueue {
      * Для вставик использовать add(int index, E value)
      * @param
      */
-    public void put(Task newTask) {
+    public void put(Task task) {
+        int  count = tasks.size();
         if (tasks.isEmpty() ||
-                tasks.getLast().getPriority() <= newTask.getPriority()) {
-            this.tasks.add(newTask);
+                tasks.getLast().getPriority() <= task.getPriority()) {
+            this.tasks.add(task);
         } else {
-            for (Task task : tasks) {
-                if (newTask.getPriority() < task.getPriority()) {
-                    this.tasks.add(tasks.indexOf(task), newTask);
-                    break;
-                } else if (newTask.getPriority() == task.getPriority()) {
-                    this.tasks.add(tasks.indexOf(task) + 1, newTask);
+            for (int index = 0; index < count; index++) {
+                if (task.getPriority() < tasks.get(index).getPriority()) {
+                    tasks.add(index, task);
                     break;
                 }
             }
