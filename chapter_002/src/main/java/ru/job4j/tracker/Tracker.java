@@ -66,7 +66,6 @@ public class Tracker {
         for (int i = 0; i < this.items.size(); i++) {
             if (this.items.get(i).getId().equals(id)) {
                 this.items.remove(i);
-                System.arraycopy(items, i + 1, items, i, position - i);
                 position--;
                 result = true;
                 break;
