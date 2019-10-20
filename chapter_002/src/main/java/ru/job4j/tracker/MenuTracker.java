@@ -57,12 +57,11 @@ public class MenuTracker {
         this.actions.add(new ExitProgram());
     }
 
-    public int [] ranges () {
-        int[] range = new int[actions.size()];
-        int i = 0;
-        for (UserAction action : actions) {
-            range [i++] = action.key();
-        }
+        public List<Integer> ranges() {
+            List<Integer> range = new ArrayList<>();
+            for (UserAction action : this.actions) {
+                range.add(action.key());
+            }
         return range;
     }
 
