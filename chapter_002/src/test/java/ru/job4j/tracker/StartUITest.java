@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.List;
 import java.util.StringJoiner;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
@@ -37,12 +38,12 @@ public class StartUITest {
         Tracker tracker = new Tracker();     // создаём Tracker
         Input input = new StubInput(new String[]{"0", "test name", "desc", "6"});   //создаём StubInput с последовательностью действий
         new StartUI(input, tracker).init();     //   создаём StartUI и вызываем метод init()
-        assertThat(tracker.findAll()[0].getName(), is("test name")); // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
+        assertThat(tracker.findAll().get(0).getName(), is("test name")); // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
     }
     @Test
     public void whenShowAllItemsThenShowsCorrectly () {
         Tracker tracker = new Tracker();
-        Item items[] = tracker.findAll();
+        List<Item> items = tracker.findAll();
         Input input = new StubInput(new String[]{"1", "6"});
         new StartUI(input, tracker).init();
         assertThat(items, is(new Item[0]));
@@ -97,7 +98,7 @@ public class StartUITest {
     public void whenFindByNameThenShowsCorrectly() {
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("test name", "desc", 1046L));
-        Item[] items = tracker.findByName("test name");
+        List<Item> items = tracker.findByName("test name");
         Item add = tracker.add(new Item("test name", "desc", 1046L));
         Input input = new StubInput(new String[]{"5", item.getName(), "6"});
         new StartUI(input, tracker).init();

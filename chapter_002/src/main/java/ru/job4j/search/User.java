@@ -4,11 +4,13 @@ public class User {
     private int id;
     private String name ;
     private String city;
+    int age;
 
-    public User(int id, String name, String city ) {
+    public User(int id, String name, String city,int age ) {
         this.id = id ;
         this.name =name;
         this.city = city;
+        this.age = age;
      }
 
     public int getId () {

@@ -19,7 +19,7 @@ public class StubInput implements Input {
         //return 0;
     //}
 
-    public int ask (String question, List<Integer> range) {
+    public int ask (String question, int[] range) {
         int key = Integer.valueOf(this.ask(question));
         boolean exist = false;
         for (int value : range) {
