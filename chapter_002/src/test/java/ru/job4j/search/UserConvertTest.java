@@ -12,9 +12,9 @@ public class UserConvertTest {
     public void convertListOfUsersToMap() {
         UserConvert converter = new UserConvert();
         List<User> users = new ArrayList<>();
-        users.add(new User(1, "Pioytr", "Bryansk"));
-        users.add(new User(2, "Andre", "Chisinau"));
-        users.add(new User(3, "Joseph", "Moskva"));
+        users.add(new User(1, "Pioytr", "Bryansk",31));
+        users.add(new User(2, "Andre", "Chisinau",99));
+        users.add(new User(3, "Joseph", "Moskva",56));
         HashMap<Integer, User> result = converter.process(users);
         assertThat(result.get(2).getName(), is("Andre"));
     }

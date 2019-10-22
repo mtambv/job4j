@@ -5,6 +5,9 @@ import org.junit.Before;
 import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
@@ -23,31 +26,39 @@ public class ValidateInputTest {
         System.setOut(this.out);
     }
 
-    @Test
-    public void whenOutOfBoundsInput() {
-        ValidateInput input = new ValidateInput(
-                new StubInput(new String[] {"100", "7"})
-        );
-        input.ask("Enter", new int[] {7});
-        assertThat(
-                this.mem.toString(),
-                is(
-                        String.format("Please select key from menu.%n")
-                )
-        );
-    }
+
+
 
     @Test
     public void whenInvalidInput() {
         ValidateInput input = new ValidateInput(
-                new StubInput(new String[] {"invalid", "1"})
+                new StubInput(new ArrayList<String>(Arrays.asList("invalid", "1")))
         );
-        input.ask("Enter", new int[] {1});
+        input.ask("Enter", new ArrayList<>(Arrays.asList(1)));
         assertThat(
                 this.mem.toString(),
                 is(
-                        String.format("Please enter validate data again.%n")
+                        String.format("Please enter valid data again.%n")
                 )
         );
     }
+
+    /**
+     * Тест на ввод пользователем неверного числа.
+     */
+    @Test
+    public void whenInvalidInputNum() {
+        ValidateInput input = new ValidateInput(
+                new StubInput(new ArrayList<>(Arrays.asList("66", "1")))
+        );
+        input.ask("Enter", new ArrayList<>(Arrays.asList(1)));
+        assertThat(
+                this.mem.toString(),
+                is(
+                        String.format("Please select number from menu.%n")
+                )
+        );
+    }
+
+
 }
