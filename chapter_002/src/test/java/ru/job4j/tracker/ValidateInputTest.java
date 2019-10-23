@@ -55,7 +55,7 @@ public class ValidateInputTest {
         assertThat(
                 this.mem.toString(),
                 is(
-                        String.format("Please select number from menu.%n")
+                        String.format("Please select key from menu.%n")
                 )
         );
     }

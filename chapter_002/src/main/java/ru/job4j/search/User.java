@@ -4,7 +4,7 @@ public class User {
     private int id;
     private String name ;
     private String city;
-    int age;
+    private int age;
 
     public User(int id, String name, String city,int age ) {
         this.id = id ;
@@ -21,7 +21,10 @@ public class User {
         return this.name; }
 
     public String getCity () {
+
         return this.city;
     }
-
+    public Integer getAge() {
+        return this.age;
+    }
 }
