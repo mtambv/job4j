@@ -4,7 +4,7 @@ import java.util.Comparator;
 
 public class ListCompare implements Comparator <String> {
     @Override
-    public int compare(String left, String right){
+    public int compare(String left, String right) {
         int size = left.length();
         if (left.length() < right.length()) {
             size = right.length();
@@ -13,11 +13,8 @@ public class ListCompare implements Comparator <String> {
         char[] second = toCharArray(size, right);
         int result = 0;
         for (int index = 0; index < size; index++) {
-            if (Character.compare(first[index], second[index]) < 0) {
-                result = -1;
-                break;
-            } else if (Character.compare(first[index], second[index]) > 0) {
-                result = 1;
+            result = Character.compare(first[index], second[index]);
+            if (result != 0) {
                 break;
             }
         }
