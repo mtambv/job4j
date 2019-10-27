@@ -13,7 +13,7 @@ public class ListCompare implements Comparator <String> {
         char[] second = toCharArray(size, right);
         int result = 0;
         for (int index = 0; index < size; index++) {
-            result = Integer.compare(left.length(), right.length());
+            result = Character.compare(first[index], second[index]);
             if (result != 0) {
                 break;
             }
