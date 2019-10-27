@@ -1,7 +1,7 @@
 package ru.job4j.tracker;
 
 public class FindItemById extends BaseAction {
-    public FindItemById  (int key, String name) {
+    public FindItemById(int key, String name) {
         super(key, name);
     }
 

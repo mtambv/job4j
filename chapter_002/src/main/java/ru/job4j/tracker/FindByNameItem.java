@@ -3,7 +3,7 @@ package ru.job4j.tracker;
 import java.util.List;
 
 public class FindByNameItem extends BaseAction {
-    public FindByNameItem  (int key, String name) {
+    public FindByNameItem(int key, String name) {
         super(key, name);
     }
 

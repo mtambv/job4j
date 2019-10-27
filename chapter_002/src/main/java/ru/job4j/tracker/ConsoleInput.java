@@ -9,7 +9,7 @@ private Scanner scanner = new Scanner(System.in);
         System.out.print(question);
         return scanner.nextLine();
     }
-    public int ask (String question, List<Integer> range) {
+    public int ask(String question, List<Integer> range) {
         int key = Integer.valueOf(this.ask(question));
         boolean exist = false;
         for (int value : range) {
@@ -19,7 +19,7 @@ private Scanner scanner = new Scanner(System.in);
             }
         }
         if (!exist) {
-            throw new MenuOutException("Out of menu range" );
+            throw new MenuOutException("Out of menu range");
            }
             return key;
     }

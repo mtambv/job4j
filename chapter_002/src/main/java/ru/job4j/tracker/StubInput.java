@@ -22,7 +22,7 @@ public class StubInput implements Input {
         //return 0;
     //}
 
-    public int ask (String question, List<Integer> range) {
+    public int ask(String question, List<Integer> range) {
         int key = Integer.valueOf(this.ask(question));
         boolean exist = false;
         for (int value : range) {
@@ -32,7 +32,7 @@ public class StubInput implements Input {
             }
         }
         if (!exist) {
-            throw new MenuOutException("Out of menu range" );
+            throw new MenuOutException("Out of menu range");
         }
         return key;
         }

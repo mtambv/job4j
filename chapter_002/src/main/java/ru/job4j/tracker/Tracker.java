@@ -83,7 +83,7 @@ public class Tracker {
             return this.items;
         }
 
-        public List<Item> findByName (String key){
+        public List<Item> findByName(String key) {
             List<Item> listOfNames = new ArrayList<>();
             for (Item item : this.items) {
                 if (item.getName().equals(key)) {

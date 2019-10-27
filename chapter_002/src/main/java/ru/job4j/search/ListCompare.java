@@ -2,7 +2,7 @@ package ru.job4j.search;
 
 import java.util.Comparator;
 
-public class ListCompare implements Comparator <String> {
+public class ListCompare implements Comparator<String> {
     @Override
     public int compare(String left, String right) {
         int size = left.length();
@@ -16,10 +16,10 @@ public class ListCompare implements Comparator <String> {
             result = Character.compare(first[index], second[index]);
             if (result != 0) {
                 break;
+            } else {
+                result = Integer.compare(left.length(), right.length());
             }
         }
-        result = Integer.compare(left.length(), right.length());
-
         return result;
     }
 

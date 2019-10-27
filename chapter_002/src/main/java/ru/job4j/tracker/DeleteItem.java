@@ -1,7 +1,7 @@
 package ru.job4j.tracker;
 
 public class DeleteItem extends BaseAction {
-    public DeleteItem (int key, String name) {
+    public DeleteItem(int key, String name) {
         super(key, name);
     }
 
