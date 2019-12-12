@@ -78,6 +78,6 @@ public class StartUI {
         public static void main(String[]args) {
             Input input = new ValidateInput(new ConsoleInput());
             // вывод на консоль с помощью ссылки на метод System.out::println
-            new StartUI(new ValidateInput(new ConsoleInput()), new Traker(), System.out::println).init();
+            //new StartUI(new ValidateInput(new ConsoleInput()), new Traker(), System.out::println).init();
         }
     }
