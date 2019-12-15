@@ -4,7 +4,10 @@ import org.junit.Test;
 import ru.job4j.school.School;
 import ru.job4j.school.Student;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -60,6 +63,21 @@ public class SchoolTest {
                 new Student(1)
         );
         List<Student> result = School.collect(students, student -> 0 < student.getScore() && student.getScore() < 50);
+        assertThat(result, is(expected));
+    }
+    @Test
+    public void whenStudentListConvertToMapThenStudentMap() {
+        List<Student> students = Arrays.asList(
+                new Student("Surname1", 30),
+                new Student("Surname2", 70),
+                new Student("Surname3", 69),
+                new Student("Surname4", 1)
+        );
+        Map<String, Student> expected = new HashMap<>();
+        for (Student student : students) {
+            expected.put(student.getSurname(), student);
+        }
+        Map<String, Student> result = School.toMap(students);
         assertThat(result, is(expected));
     }
 }
