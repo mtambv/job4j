@@ -1,8 +1,11 @@
 package ru.job4j.school;
 
 import java.util.Objects;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
-public class Student {
+public class Student implements Comparable<Student>{
     private int score;
     private String surname;
     private static long unknownId = 1;
@@ -53,5 +56,17 @@ public class Student {
     @Override
     public int hashCode() {
         return Objects.hash(score);
+    }
+    @Override
+    public int compareTo(Student o) {
+        return surname.compareToIgnoreCase(o.surname);
+    }
+
+    public static List<Student> levelOf(List<Student> students, int bound) {
+        return students.stream()
+                .flatMap(Stream::ofNullable)
+                .sorted()
+                .takeWhile(student -> student.score >= bound)
+                .collect(Collectors.toList());
     }
 }
