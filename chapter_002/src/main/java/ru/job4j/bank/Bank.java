@@ -26,13 +26,11 @@ public class Bank {
     }
 
     public List<Account> getUserAccounts(String passport) {
-        List<Account> result = null;
-        for (Map.Entry<User, List<Account>> client : clients.entrySet()) {
-            if (client.getKey().getPassport().equals(passport)) {
-                result = client.getValue();
-            }
-        }
-        return result;
+        return clients.entrySet().stream()
+                .filter(e -> e.getKey().getPassport().equals(passport))
+                .findFirst()
+                .map(Map.Entry::getValue)
+                .orElse(new ArrayList<>());
     }
 
     public boolean transferMoney(String srcPassport, String srcRequisite,
@@ -49,5 +47,11 @@ public class Bank {
             result = true;
         }
         return result;
+    }
+    private Account getUserAccount(String passport, String requisite) {
+        return getUserAccounts(passport).stream()
+                .filter(acc -> acc.getRequisites().equals(requisite))
+                .findFirst()
+                .orElse(null);
     }
 }
