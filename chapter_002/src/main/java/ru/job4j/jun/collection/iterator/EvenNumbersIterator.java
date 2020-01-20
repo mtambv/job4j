@@ -8,17 +8,25 @@ public class EvenNumbersIterator implements Iterator {
     private int[] data;
     private Integer index = 0;
 
-    public EvenNumbersIterator(int[] data) {
-
-        this.data = Arrays
-                .stream(data)
-                .filter(x -> x % 2 == 0)
-                .toArray();
+    public  EvenNumbersIterator(int[] data) {
+        this.data = data;
     }
 
     @Override
     public boolean hasNext() {
-        return index < data.length;
+
+        boolean rsl = index < data.length;
+        if (rsl && !isEven(data[index])) {
+            rsl = false;
+            while (index < data.length) {
+                if (isEven(data[index])) {
+                    rsl = true;
+                    break;
+                }
+                index++;
+            }
+        }
+        return rsl;
     }
 
     @Override
@@ -26,8 +34,10 @@ public class EvenNumbersIterator implements Iterator {
         if (data.length == index) {
             throw new NoSuchElementException();
         }
-
         return data[index++];
+    }
 
+    private static boolean isEven(int n) {
+        return n % 2 == 0;
     }
 }
