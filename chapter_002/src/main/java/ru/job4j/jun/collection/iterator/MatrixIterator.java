@@ -24,7 +24,7 @@ public class MatrixIterator implements Iterator {
     @Override
     public Object next() {
 
-        if (data.length == y) {
+        if (!hasNext()) {
             throw new NoSuchElementException();
         }
 
