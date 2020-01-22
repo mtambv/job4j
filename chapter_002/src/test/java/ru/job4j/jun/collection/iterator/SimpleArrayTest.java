@@ -1,9 +1,8 @@
 package ru.job4j.jun.collection.iterator;
 
-import static org.junit.Assert.*;
-
 import org.junit.Assert;
 import org.junit.Test;
+import ru.job4j.jun.collection.generic.SimpleArray;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
