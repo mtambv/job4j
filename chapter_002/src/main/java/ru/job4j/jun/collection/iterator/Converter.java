@@ -5,7 +5,9 @@ public class Converter {
     Iterator<Integer> iterator = null;
 
     Iterator<Integer> convert(Iterator<Iterator<Integer>> it) {
-        iterator = it.next();
+        if (!iterator.hasNext()) {
+            iterator = it.next();
+        }
         return new Iterator<Integer>() {
             @Override
             public boolean hasNext() {
@@ -14,10 +16,8 @@ public class Converter {
                 }
                 return iterator.hasNext();
             }
-
             @Override
             public Integer next() {
-
                 if (!iterator.hasNext()) {
                     iterator = it.next();
                 }
