@@ -20,6 +20,9 @@ public class SimpleArray<T> implements Iterable<T> {
     }
 
     public T get(int index) {
+        if (index >= count && index < 0) {
+            throw new IndexOutOfBoundsException();
+        }
         return (T) data[index];
     }
 
