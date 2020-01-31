@@ -8,8 +8,8 @@ import java.util.NoSuchElementException;
 public class SimpleArray<E> implements SimpleList<E> {
     private final static int DEFAULT_CAPACITY = 3;
     private Object[] container;
-    private Integer count;
-    private Integer modCount;
+    private int count;
+    private int modCount;
 
     public SimpleArray() {
         count = 0;
