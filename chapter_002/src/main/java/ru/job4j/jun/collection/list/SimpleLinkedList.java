@@ -1,10 +1,16 @@
 package ru.job4j.jun.collection.list;
 
+import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public class SimpleLinkedList<E> implements SimpleList<E> {
     private int size;
     private Node<E> first;
+
+    @Override
+    public Iterator<E> iterator() {
+        return null;
+    }
 
     private static class Node<E> {
         E data;
@@ -38,11 +44,7 @@ public class SimpleLinkedList<E> implements SimpleList<E> {
             throw new NoSuchElementException();
         }
         E data = this.first.data;
-        if (size > 0) {
-            this.first = this.first.next;
-        } else {
-            this.first = null;
-        }
+        this.first = this.first.next;
         size--;
         return data;
     }
