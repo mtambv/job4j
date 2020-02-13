@@ -5,6 +5,8 @@ import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Map;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+
 public class UserTest {
 
     @Test
@@ -16,4 +18,5 @@ public class UserTest {
         map.put(second, "two");
         System.out.println(map);
     }
+
 }
