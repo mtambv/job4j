@@ -17,6 +17,6 @@ public class UserTest {
         map.put(first, "one");
         map.put(second, "two");
         System.out.println(map);
+        System.out.println (first.equals(second));
     }
-
 }
