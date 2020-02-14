@@ -27,13 +27,13 @@ public class User {
         return birthday;
     }
 
-    /*@Override
+    @Override
     public int hashCode() {
         int result = name != null ? name.hashCode() : 0;
         result = 31 * result + children;
         result = 31 * result + birthday.hashCode();
         return result;
-    }*/
+    }
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
