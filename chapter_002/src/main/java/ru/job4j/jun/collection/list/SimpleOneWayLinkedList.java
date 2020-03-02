@@ -3,7 +3,7 @@ package ru.job4j.jun.collection.list;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class SimpleLinkedList<E> implements SimpleList<E> {
+public class SimpleOneWayLinkedList<E> implements SimpleList<E> {
     private int size;
     private Node<E> first;
 

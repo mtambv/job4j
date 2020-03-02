@@ -8,12 +8,12 @@ import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
 
 
-public class SimpleLinkedListTest {
-    private SimpleLinkedList<Integer> list;
+public class SimpleOneWayLinkedListTest {
+    private SimpleOneWayLinkedList<Integer> list;
 
     @Before
     public void beforeTest() {
-        list = new SimpleLinkedList<>();
+        list = new SimpleOneWayLinkedList<>();
         list.add(1);
         list.add(2);
         list.add(3);
